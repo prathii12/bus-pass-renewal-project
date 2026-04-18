@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<h2>Login</h2>
+
+<form method="POST">
+
+    <input type="text" name="name" placeholder="Enter Name" required><br><br>
+
+    <input type="text" name="user_id" placeholder="Enter User ID" required><br><br>
+
+    <div style="position: relative; width: 250px;">
+    <input type="password" id="password" name="password" placeholder="Enter Password" required style="width:100%; padding-right:40px;">
+    
+    <span id="eye" onclick="togglePassword()" 
+          style="position:absolute; right:10px; top:50%; transform:translateY(-50%); cursor:pointer;">
+        👁️
+    </span>
+</div>
+    <br>
+    <button type="submit">Login</button>
+
+</form>
+
+<br>
+
+<a href="/register">Don't have an account? Register</a><br>
+<a href="/forgot">Forgot Password?</a><br><br>
+
+<button onclick="window.location.href='/'" class="bottom-home">
+    Home
+</button>
+
+<script>
+function togglePassword() {
+    var pass = document.getElementById("password");
+    var eye = document.getElementById("eye");
+
+    if (pass.type === "password") {
+        pass.type = "text";
+        eye.innerText = "🙈";
+    } else {
+        pass.type = "password";
+        eye.innerText = "👁️";
+    }
+}
+</script>
+</body>
+</body>
+</html>

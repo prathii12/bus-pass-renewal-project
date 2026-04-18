@@ -1,0 +1,12 @@
+<h2>💳 Fake Payment Page</h2>
+
+<p><b>Route:</b> {{ r.route }}</p>
+<p><b>Type:</b> {{ r.pass_type }}</p>
+<p><b>Amount:</b> ₹{{ r.amount }}</p>
+<p><b>Payment Method:</b> {{ r.payment_method }}</p>
+
+<br>
+
+<a href="/payment_success/{{ r.id }}">
+    <button>Pay Now</button>
+</a>

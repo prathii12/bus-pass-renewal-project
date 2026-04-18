@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<h2>Welcome User</h2>
+
+<a href="/logout">Logout</a>
+
+<h3>Apply for Bus Pass Renewal</h3>
+
+<form method="POST">
+    <input type="text" name="route" placeholder="Enter Route" required><br><br>
+
+    <select name="pass_type">
+        <option>Monthly</option>
+        <option>Yearly</option>
+    </select><br><br>
+
+    <select name="payment_method" required>
+    <option value="">Select Payment Method</option>
+    <option value="paytm">paytm</option>
+    <option value="phonepay">phonepay</option>
+    <option value="Gpay">Gpay</option>
+</select><br><br>
+
+    <button type="submit">Apply</button>
+</form>
+
+{% if success %}
+    <p style="color: green; font-weight: bold; text-align:center;">
+        {{ success }}
+    </p>
+{% endif %}
+
+<h3>Your Requests</h3>
+
+<table border="1">
+<tr>
+    <th>Route</th>
+    <th>Type</th>
+    <th>Expiry</th>
+    <th>Status</th>
+    <th>Payment</th> 
+    <th>Amount</th>
+    <th>Payment Status</th>
+    <th>Reminder</th>
+    <th>Receipt</th>
+</tr>
+
+{% for r in renewals %}
+<tr>
+    <td>{{ r.route }}</td>
+    <td>{{ r.pass_type }}</td>
+    <td>{{ r.expiry_date }}</td>
+    <td>{{ r.status }}</td>
+    <td>{{ r.payment_method }}</td>
+    <td>{{ r.amount }}</td>
+
+    <td class="{{ 'paid' if r.payment_status == 'Paid' else 'pending' }}">
+        {{ r.payment_status }}
+    </td>
+
+    <td>{{ r.reminder }}</td>
+
+    <!-- ✅ FIXED COLUMN -->
+    <td>
+
+    {% if r.payment_status == 'Paid' %}
+        <a href="/receipt/{{ r.id }}">
+            <button>Download</button>
+        </a>
+
+    {% elif r.status == 'Approved' %}
+        <a href="/payment/{{ r.id }}">
+            <button>Pay Now</button>
+        </a>
+
+    {% elif r.status == 'Rejected' %}
+        <span style="color:red; font-weight:bold;">Rejected ❌</span>
+
+    {% else %}
+        <span style="color:orange;">Waiting for Approval</span>
+
+    {% endif %}
+
+    </td>
+
+</tr>
+{% endfor %}
+
+</table>
+
+<br><br>
+
+<button onclick="window.location.href='/'" class="bottom-home">
+    Home
+</button>
+
+</body>
+</html>

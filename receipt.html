@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipt</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="receipt-box">
+
+    <h2>🚌 Bus Pass Receipt</h2>
+    <hr>
+
+    <p><b>User ID:</b> {{ r.real_user_id }}</p>
+    <p><b>Name:</b> {{ r.name }}</p>
+    <p><b>Route:</b> {{ r.route }}</p>
+    <p><b>Pass Type:</b> {{ r.pass_type }}</p>
+    <p><b>Expiry Date:</b> {{ r.expiry_date }}</p>
+
+    <hr>
+
+    <h3>💳 Payment Details</h3>
+    <p><b>Payment Method:</b> {{ r.payment_method }}</p>
+    <p><b>Amount Paid:</b> ₹{{ r.amount }}</p>
+    <p><b>Status:</b> {{ r.payment_status }}</p>
+
+    <hr>
+
+    <p><b>Date:</b> {{ r.expiry_date }}</p>
+
+    <br>
+
+    <button onclick="window.print()">🖨️ Print Receipt</button>
+
+</div>
+
+</body>
+</html>

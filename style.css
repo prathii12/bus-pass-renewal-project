@@ -1,0 +1,56 @@
+.bottom-home {
+    display: block;
+    margin: 20px auto;
+    padding: 8px 18px;
+
+    background-color: rgb(53, 180, 180);
+    color: #FFD700;
+
+    border: 2px solid rgb(53, 180, 180);
+    border-radius: 20px;
+
+    font-weight: bold;
+    text-align: center;
+
+    cursor: pointer;
+
+}
+
+button {
+    padding: 6px 12px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.paid {
+    color: green;
+    font-weight: bold;
+}
+
+.pending {
+    color: red;
+    font-weight: bold;
+}
+
+.receipt-box {
+    width: 400px;
+    margin: 40px auto;
+    padding: 20px;
+
+    border: 2px solid black;
+    border-radius: 10px;
+
+    background-color: #f9f9f9;
+    font-family: Arial;
+}
+
+.receipt-box h2 {
+    text-align: center;
+}
+
+.receipt-box hr {
+    margin: 10px 0;
+}
