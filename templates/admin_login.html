@@ -1,9 +1,69 @@
-<h2>Admin Login</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Admin Login</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<form method="POST">
-    <input type="password" name="admin_pass" placeholder="Enter Admin Password" required><br><br>
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <button type="submit">Enter Admin Panel</button>
-</form>
+    <style>
+        body {
+            background: linear-gradient(to right, #ff512f, #dd2476);
+            height: 100vh;
+        }
+        .card {
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
 
-<br>
+<div class="d-flex justify-content-center align-items-center vh-100">
+    <div class="card p-4 shadow" style="width: 350px;">
+        
+        <h3 class="text-center mb-3">Admin Login</h3>
+
+        <form method="POST">
+
+            <!-- Password -->
+            <div class="mb-3 position-relative">
+                <label>Enter Admin Password</label>
+
+                <input type="password" class="form-control" id="password" placeholder="Enter Admin Password" name="password" required>
+
+                <span id="eye" onclick="togglePassword()" 
+                      style="position:absolute; right:10px; top:38px; cursor:pointer;">
+                    👁️
+                </span>
+            </div>
+
+            <button class="btn btn-dark w-100">Enter Admin Panel</button>
+
+        </form>
+
+        <div class="text-center mt-3">
+            <a href="/">Back to Home</a>
+        </div>
+
+    </div>
+</div>
+
+<!-- Script -->
+<script>
+function togglePassword() {
+    var pass = document.getElementById("password");
+    var eye = document.getElementById("eye");
+
+    if (pass.type === "password") {
+        pass.type = "text";
+        eye.innerText = "🙈";
+    } else {
+        pass.type = "password";
+        eye.innerText = "👁️";
+    }
+}
+</script>
+
+</body>
+</html>
